@@ -772,6 +772,7 @@ window.onload = function () {
 
     // Game Over overlay
     if (gamestate == gamestates.gameover) {
+      gameOverScreen(score);
       context.fillStyle = "rgba(0, 0, 0, 0.8)";
       context.fillRect(
         level.x - 4,
@@ -1106,7 +1107,6 @@ window.onload = function () {
   function onMouseDown(e) {
     // Get the mouse position
     var pos = getMousePos(canvas, e);
-
     if (gamestate == gamestates.ready) {
       shootBubble();
     } else if (gamestate == gamestates.gameover) {

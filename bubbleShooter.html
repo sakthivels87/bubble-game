@@ -1,110 +1,183 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
-<title>Bubble Shooter</title>
-<link rel="stylesheet" href="./assets/dist/css/bootstrap.min.css"/>
-<style>
-    body{
-        background-image:url('./images/background-img.JPG');
-    }
-    div.start-page{
-        background-color: #f8f8f8;
-        width:95%;
-        margin:5px auto;
-    }
-    div.bubble-container{
-        display: none;
-        background-color: none;
-        margin:20px auto;
-    }
-    header{
-        margin-left:20px;
-    }
-    div.card-header{
-        font-weight: bold;
-        font-style: oblique;
-    }
-</style>
-</head>
-<body class="img-fluid">
-    <div class="container">
-        <div class="start-page">
-            <header class="mb-2 border-bottom bg-light">
-                <figure>
-                    <blockquote class="blockquote">
-                       <h1>Bubble Shooter</h1>
-                    </blockquote>
-                    <figcaption class="blockquote-footer">
-                      Let's have a fun with <cite title="Source Title"> breaking bubbles :)</cite>
-                    </figcaption>
-                </figure>
-            </header>
-            <div class="p-1 mb-4 bg-light rounded-3 border-bottom">
-                <div class="container-fluid">
-                  <h1 class="display-6 fw-bold">Instructions</h1>
-                  <p class="col-md-12 fs-4">Shoot bubbles from the cannon and match them up to form groups of three or more bubbles that are the same color.</p>
-                  <ul class="list-group active">
-                      <li class="list-group-item list-group-item-primary">When you have more than three in each group, the bubbles will blast away and clear space on the board</li>
-                      <li class="list-group-item list-group-item-secondary">More bubbles removed in each shot equals a higher score on the board!</li>
-                      <li class="list-group-item list-group-item-success">Don't forget to check which bubble color is coming up next so you can have a strategy to beat the game.</li>
-                      <li class="list-group-item list-group-item-info">Make as many matches as possible to clear the board and move onto the next level.</li>                      
-                  </ul>
-                  <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-4">
-                    <button class="btn btn-primary btn-lg" type="button" onclick="startGame()"  >Start</button>
-                  </div>                  
-                </div>
-              </div>
 
-              <div class="row align-items-md-stretch">
-                <div class="card-header">Tips to scoring on bubble shooter</div>
-                <div class="card-body">
-                    There’s more than one way to score a lot of points. With a few tips, getting combinations and racking in the points will shoot you up the ladder while you get past hard levels. With a little practice and focus on the basics, you can start from the easiest levels of the Bubble Shooter game and make it to the harder episodes.
-                </div>
-                <div class="col-md-3">
-                  <div class="h-100 p-5 text-white bg-dark rounded-3">
-                    <h2>Be Quick and Decisive</h2>
-                    <p>Clear all the bubbles on this easy bubble shooter game so that you can move on to the next level quickly. Over time, you will naturally become quicker so no need to push yourself with this tip alone. A great way to increase your speed is by practicing on the big screen. This is one of the best PC games for beginners since you can use a mouse, which is more accurate. When you play on a PC, you get the experience of doing it without any downloads.</p>
-                  </div>
-                </div>
-                <div class="col-md-3">
-                  <div class="h-100 p-5 bg-light border rounded-3">
-                    <h2>Be Smart When Shooting the Bubble</h2>
-                    <p>Make sure you plan your aim well so that it lands exactly where you want it to. If you accidentally block bubbles early in the game, you may make it more difficult to clear the playing field. When you’re playing on the web version, aim your cursor exactly where you want the bubble to go. This will make your shot more accurate and less likely to hit an unintended bubble.</p>
-                  </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="h-100 p-5 text-white bg-dark border rounded-3">
-                      <h2>Make A Clear Path</h2>
-                      <p>This is probably one of the most important tips for beating this easy bubble shooter game. If there are smaller groups of bubbles, don’t worry about them since you can get them later. Go for the grouped set of bubbles first so that you can drop the smaller groups of bubbles. In some of the higher levels, try to make a straight path to the big group of bubbles that may be hidden by smaller groups</p>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="h-100 p-5 bg-light border rounded-3">
-                      <h2>Plan Your Bubble Colors Well</h2>
-                      <p>You can see what color bubble will be next to shoot which is part of why this is among the best PC games for beginners. Use this foresight to your advantage and plan ahead so that you can save time. If you have two colored bubbles in a row, you can target a single bubble by itself to clear the path. Making these combos will allow you to clear up “difficulty bubbles.”</p>
-                    </div>
-                  </div>
-                  <div class="alert alert-light" role="alert">
-                    <span>Don’t limit yourself to these easy bubble shooter game tips. To improve your skills and move through the levels of Bubble Shooter, find what works best for you. The more you advance, the more you will have to test out new techniques so that you can hone your own playing style. </span>
-                  </div>
-              </div>
-              <footer class="pt-3 mt-4 text-muted border-top">
-                &copy; 2022
-              </footer>
-        </div>
-    <div class="bubble-container">
-      <canvas style="margin-left: 20%;" id="viewport" width="628" height="628"></canvas></div>
-    </div>
-</div>
-<script>
-    function startGame(){
-        let startPage = document.getElementsByClassName("start-page");
-        var element = document.getElementsByClassName("bubble-container");
-        element[0].style.display = 'block';
-        startPage[0].style.display = 'none';
+<head>
+  <meta charset="UTF-8">
+  <title>Bubble Shooter</title>
+  <link rel="stylesheet" href="./assets/dist/css/bootstrap.min.css" />
+  <style>
+    body {
+      background-image: url('./images/background-img.JPG');
+      background-color: #f8f8f8;
     }
-</script>
-<script type='text/javascript' src='./bubble-game.js'></script>
+
+    div.start-page {
+      background-color: #f8f8f8;
+      width: 95%;
+      margin: 5px auto;
+    }
+
+    div.bubble-container {
+      display: none;
+      background-color: none;
+      margin: 20px auto;
+    }
+
+    header {
+      margin-left: 20px;
+    }
+
+    div.card-header {
+      font-weight: bold;
+      font-style: oblique;
+    }
+
+    div.game-over.hide {
+      display: none;
+    }
+
+    div.game-over.show {
+      display: block;
+    }
+
+    div.game-over {
+      position: fixed;
+      top: 2%;
+      left: 15%;
+      background-color: #dedede;
+      width: 50%;
+      height: 700px;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+
+<body class="img-fluid">
+  <div class="container">
+    <div class="start-page">
+      <header class="mb-2 border-bottom bg-light">
+        <figure>
+          <blockquote class="blockquote">
+            <h1>Bubble Shooter</h1>
+          </blockquote>
+          <figcaption class="blockquote-footer">
+            Let's have a fun with <cite title="Source Title"> breaking bubbles :)</cite>
+          </figcaption>
+        </figure>
+      </header>
+      <div class="p-1 mb-4 bg-light rounded-3 border-bottom">
+        <div class="container-fluid">
+          <h1 class="display-6 fw-bold">Instructions</h1>
+          <p class="col-md-12 fs-4">Shoot bubbles from the cannon and match them up to form groups of three or more
+            bubbles that are the same color.</p>
+          <ul class="list-group active">
+            <li class="list-group-item list-group-item-primary">When you have more than three in each group, the bubbles
+              will blast away and clear space on the board</li>
+            <li class="list-group-item list-group-item-secondary">More bubbles removed in each shot equals a higher
+              score on the board!</li>
+            <li class="list-group-item list-group-item-success">Don't forget to check which bubble color is coming up
+              next so you can have a strategy to beat the game.</li>
+            <li class="list-group-item list-group-item-info">Make as many matches as possible to clear the board and
+              move onto the next level.</li>
+          </ul>
+          <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-4">
+            <button class="btn btn-primary btn-lg" type="button" onclick="startGame()">Start</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="row align-items-md-stretch">
+        <div class="card-header">Tips to scoring on bubble shooter</div>
+        <div class="card-body">
+          There’s more than one way to score a lot of points. With a few tips, getting combinations and racking in the
+          points will shoot you up the ladder while you get past hard levels. With a little practice and focus on the
+          basics, you can start from the easiest levels of the Bubble Shooter game and make it to the harder episodes.
+        </div>
+        <div class="col-md-3">
+          <div class="h-100 p-5 text-white bg-dark rounded-3">
+            <h2>Be Quick and Decisive</h2>
+            <p>Clear all the bubbles on this easy bubble shooter game so that you can move on to the next level quickly.
+              Over time, you will naturally become quicker so no need to push yourself with this tip alone. A great way
+              to increase your speed is by practicing on the big screen. This is one of the best PC games for beginners
+              since you can use a mouse, which is more accurate. When you play on a PC, you get the experience of doing
+              it without any downloads.</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="h-100 p-5 bg-light border rounded-3">
+            <h2>Be Smart When Shooting the Bubble</h2>
+            <p>Make sure you plan your aim well so that it lands exactly where you want it to. If you accidentally block
+              bubbles early in the game, you may make it more difficult to clear the playing field. When you’re playing
+              on the web version, aim your cursor exactly where you want the bubble to go. This will make your shot more
+              accurate and less likely to hit an unintended bubble.</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="h-100 p-5 text-white bg-dark border rounded-3">
+            <h2>Make A Clear Path</h2>
+            <p>This is probably one of the most important tips for beating this easy bubble shooter game. If there are
+              smaller groups of bubbles, don’t worry about them since you can get them later. Go for the grouped set of
+              bubbles first so that you can drop the smaller groups of bubbles. In some of the higher levels, try to
+              make a straight path to the big group of bubbles that may be hidden by smaller groups</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="h-100 p-5 bg-light border rounded-3">
+            <h2>Plan Your Bubble Colors Well</h2>
+            <p>You can see what color bubble will be next to shoot which is part of why this is among the best PC games
+              for beginners. Use this foresight to your advantage and plan ahead so that you can save time. If you have
+              two colored bubbles in a row, you can target a single bubble by itself to clear the path. Making these
+              combos will allow you to clear up “difficulty bubbles.”</p>
+          </div>
+        </div>
+        <div class="alert alert-light" role="alert">
+          <span>Don’t limit yourself to these easy bubble shooter game tips. To improve your skills and move through the
+            levels of Bubble Shooter, find what works best for you. The more you advance, the more you will have to test
+            out new techniques so that you can hone your own playing style. </span>
+        </div>
+      </div>
+      <footer class="pt-3 mt-4 text-muted border-top">
+        &copy; 2022
+      </footer>
+    </div>
+    <div class="bubble-container">
+      <canvas style="margin-left: 20%;" id="viewport" width="628" height="628"></canvas>
+    </div>
+    <div class="game-over hide" id="gameOverPage" width="750" height="700">
+      <div class="container">
+        <div class="jumbotron">
+          <div class="container">
+            <h1 class="d">Game Over!!!</h1>
+            <h4 id="scoreboard"></h4>
+            <p class="lead">Thanks for playing this bubble shooter game. Hope you had great fun :). You can play again
+              by pressing play again button below.</p>
+            <button class="btn btn-primary btn-lg" onclick="javascript:playAgain();">Play Again</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <script>
+    var elem = document.getElementById("gameOverPage");
+    function startGame() {
+      let startPage = document.getElementsByClassName("start-page");
+      var element = document.getElementsByClassName("bubble-container");
+      element[0].style.display = 'block';
+      startPage[0].style.display = 'none';
+    }
+    function gameOverScreen(score) {
+      document.getElementById("scoreboard").innerText = "Your Score is: " + score;
+      elem.classList.remove("hide");
+      elem.classList.add("show");
+    }
+    function playAgain() {
+      elem = document.getElementById("gameOverPage");
+      elem.classList.remove("show");
+      elem.classList.add("hide");
+    }
+  </script>
+  <script type='text/javascript' src='./bubble-game.js'></script>
 </body>
+
 </html>
