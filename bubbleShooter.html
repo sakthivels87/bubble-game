@@ -145,7 +145,7 @@
     <div class="bubble-container">
       <canvas style="margin-left: 20%;" id="viewport" width="628" height="628"></canvas>
     </div>
-    <div class="game-over" id="gameOverPage" width="750" height="700">
+    <div class="" id="gameOverPage" width="750" height="700">
       <div class="container">
         <div class="jumbotron">
           <div class="container">
@@ -179,6 +179,7 @@
     var isGameOver = false;
     $(document).ready(function () {
       console.log("Document loaded successfully");
+      $("div#gameOverPage").addClass("game-over");
       $("div#gameOverPage").hide();
     });
     function startGame() {
