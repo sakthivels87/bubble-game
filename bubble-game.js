@@ -518,6 +518,7 @@ window.onload = function () {
         // Game over
         nextBubble();
         setGameState(gamestates.gameover);
+        gameOverScreen(score);
         return true;
       }
     }
@@ -772,7 +773,6 @@ window.onload = function () {
 
     // Game Over overlay
     if (gamestate == gamestates.gameover) {
-      gameOverScreen(score);
       context.fillStyle = "rgba(0, 0, 0, 0.8)";
       context.fillRect(
         level.x - 4,
@@ -783,16 +783,16 @@ window.onload = function () {
 
       context.fillStyle = "#ffffff";
       context.font = "24px Verdana";
-      drawCenterText(
+      /*drawCenterText(
         "Game Over!",
         level.x,
         level.y + level.height / 2 + 10,
         level.width
-      );
+      );*/
       drawCenterText(
         "Click to start",
         level.x,
-        level.y + level.height / 2 + 40,
+        level.y + level.height / 2 + 20,
         level.width
       );
     }
@@ -1112,6 +1112,7 @@ window.onload = function () {
     } else if (gamestate == gamestates.gameover) {
       newGame();
     }
+    console.log(gamestate, "---gamestate");
   }
 
   // Get the mouse position
